@@ -3,14 +3,14 @@
 import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'dashlib'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'florijncoinlib'))
 
 import time
 import signal
 import atexit
 
 from bip32utils import BIP32Key
-from dashlib import *
+from florijncoinlib import *
 from bitcoinrpc.authproxy import AuthServiceProxy, JSONRPCException
 
 

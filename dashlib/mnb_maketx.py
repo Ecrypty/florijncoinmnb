@@ -22,7 +22,7 @@ def print_balance(mn_config, have_unconfirmed_tx):
 
     for m in mn_config:
         alias = m.get('alias')
-        unspent = m.get('collateral_dashd_balance')
+        unspent = m.get('collateral_florijncoind_balance')
         sumofunspent = sum(unspent)
         cnt = len(unspent)
 
@@ -37,7 +37,7 @@ def print_balance(mn_config, have_unconfirmed_tx):
         if cnt == 0:
             need_wallet_rescan = True
 
-        if 'rpcusessl' in globals() and rpcusessl and rpcbindip == "test.stats.dash.org":
+        if 'rpcusessl' in globals() and rpcusessl and rpcbindip == "test.stats.florijncoin.org":
             need_wallet_rescan = False
 
         if MOVE_1K_COLLATERAL:
@@ -184,13 +184,13 @@ def make_inputs_for_hw_wallet(
         import keepkeylib.messages_pb2 as proto
         import keepkeylib.types_pb2 as proto_types
         from keepkeylib import tx_api
-        from keepkeylib.tx_api import TXAPIDashrpc
+        from keepkeylib.tx_api import TXAPIFlorijncoinrpc
 
     elif TYPE_HW_WALLET.lower().startswith("trezor"):
         import trezorlib.messages_pb2 as proto
         import trezorlib.types_pb2 as proto_types
         from trezorlib import tx_api
-        from trezorlib.tx_api import TXAPIDashrpc
+        from trezorlib.tx_api import TXAPIFlorijncoinrpc
 
     tx_api.rpcuser = rpcuser
     tx_api.rpcpassword = rpcpassword
@@ -199,7 +199,7 @@ def make_inputs_for_hw_wallet(
     if 'rpcusessl' in globals() and rpcusessl:
         tx_api.rpcusessl = rpcusessl
 
-    client.set_tx_api(TXAPIDashrpc())
+    client.set_tx_api(TXAPIFlorijncoinrpc())
 
     inputs = []
     outputs = []

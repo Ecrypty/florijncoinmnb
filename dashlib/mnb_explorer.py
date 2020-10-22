@@ -109,9 +109,9 @@ def get_insight_blockcount():
     import random
     
     exp = [
-        "https://insight.dashevo.org/insight-api-dash",
-        "http://insight.dash.org/api",
-        "https://insight.dash.siampm.com/api"
+        "https://insight.florijncoinevo.org/insight-api-florijncoin",
+        "http://insight.florijncoin.org/api",
+        "https://insight.florijncoin.siampm.com/api"
     ]
 
     IURL = exp[random.randrange(0,len(exp))]
@@ -123,9 +123,9 @@ def get_insight_blockcount():
 
 def get_explorer_blockcount():
     if MAINNET:
-        url = 'https://explorer.dash.org/chain/Dash/q/getblockcount'
+        url = 'https://explorer.florijncoin.org/chain/Florijncoin/q/getblockcount'
     else:
-        url = 'https://test.explorer.dash.org/chain/tDash/q/getblockcount'
+        url = 'https://test.explorer.florijncoin.org/chain/tFlorijncoin/q/getblockcount'
 
     response = make_request(url)
 
@@ -133,14 +133,14 @@ def get_explorer_blockcount():
 
 
 def get_version_txt():
-    url = 'https://raw.githubusercontent.com/chaeplin/dashmnb/master/dashlib/version.txt'
+    url = 'https://raw.githubusercontent.com/chaeplin/florijncoinmnb/master/florijncoinlib/version.txt'
     response = make_request_version_txt(url)
     return response
 
 
-def get_mnstatus_dashninja(vins):
+def get_mnstatus_florijncoinninja(vins):
     try:
-        url = 'https://www.dashninja.pl/api/masternodes?testnet=0&portcheck=0&balance=0&exstatus=0&vins=' + json.dumps(vins)
+        url = 'https://www.florijncoinninja.pl/api/masternodes?testnet=0&portcheck=0&balance=0&exstatus=0&vins=' + json.dumps(vins)
         response = make_request_version_txt(url)
         return response
     except:

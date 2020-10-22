@@ -4,7 +4,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '.'))
 
 
 from config import *
-from dash_ecdsa import *
+from florijncoin_ecdsa import *
 from mnb_misc import *
 from mnb_hwwallet import *
 
@@ -51,7 +51,7 @@ def signmessage_ecdsa(message, privkeywif):
         return(base64.b64decode(r).hex())
 
     except Exception as e:
-        err_msg = 'dash_ecdsa has problem'
+        err_msg = 'florijncoin_ecdsa has problem'
         print_err_exit(
             get_caller_name(),
             get_function_name(),
@@ -65,7 +65,7 @@ def signmessage_ecdsa_no_encoding(message, privkeywif):
         return r
 
     except Exception as e:
-        err_msg = 'dash_ecdsa has problem'
+        err_msg = 'florijncoin_ecdsa has problem'
         print_err_exit(
             get_caller_name(),
             get_function_name(),

@@ -1,7 +1,7 @@
 ```
-~ $ cd dashmnb/
-~/dashmnb $ . venv3/bin/activate
-(venv3) ~/dashmnb $ python bin/hw-wallet-for-mn.py 
+~ $ cd florijncoinmnb/
+~/florijncoinmnb $ . venv3/bin/activate
+(venv3) ~/florijncoinmnb $ python bin/hw-wallet-for-mn.py 
     ____             __  
    / __ \____ ______/ /_ 
   / / / / __ `/ ___/ __ \
@@ -40,8 +40,8 @@ Confirm your Passphrase:
 
 
 ```
-(venv3) ~/dashmnb $ python bin/dashmnb.py 
-usage: dashmnb.py [-h] [-c] [-s] [-a] [-b] [-y] [-n] [-l] [-m] [-x]
+(venv3) ~/florijncoinmnb $ python bin/florijncoinmnb.py 
+usage: florijncoinmnb.py [-h] [-c] [-s] [-a] [-b] [-y] [-n] [-l] [-m] [-x]
                   [mnalias[s] or a proposal_hash [mnalias[s] or a
                   proposal_hash ...]]
 
@@ -73,7 +73,7 @@ optional arguments:
 
 ```
 
-(venv3) ~/dashmnb $ python bin/dashmnb.py -c
+(venv3) ~/florijncoinmnb $ python bin/florijncoinmnb.py -c
     ____             __  
    / __ \____ ______/ /_ 
   / / / / __ `/ ___/ __ \
@@ -97,7 +97,7 @@ optional arguments:
 
 Network : TESTNET
 
----> checking dashd syncing status 
+---> checking florijncoind syncing status 
 
 -> protocolv : 70206
 -> blockcnt  : 146823
@@ -122,7 +122,7 @@ Confirm your Passphrase:
 
 
 ```
-(venv3) ~/dashmnb $ python bin/dashmnb.py -c
+(venv3) ~/florijncoinmnb $ python bin/florijncoinmnb.py -c
     ____             __  
    / __ \____ ______/ /_ 
   / / / / __ `/ ___/ __ \
@@ -146,7 +146,7 @@ Confirm your Passphrase:
 
 Network : TESTNET
 
----> checking dashd syncing status 
+---> checking florijncoind syncing status 
 
 -> protocolv : 70206
 -> blockcnt  : 146823
@@ -189,7 +189,7 @@ mn8 15.15.138.230:19999:m  ybv3cX4Gmn1ZK2ZgFgu51NADe3MXrtT7qP ENABLED
 
 ```
 
-(venv3) ~/dashmnb $ python bin/dashmnb.py -s
+(venv3) ~/florijncoinmnb $ python bin/florijncoinmnb.py -s
     ____             __  
    / __ \____ ______/ /_ 
   / / / / __ `/ ___/ __ \
@@ -213,7 +213,7 @@ mn8 15.15.138.230:19999:m  ybv3cX4Gmn1ZK2ZgFgu51NADe3MXrtT7qP ENABLED
 
 Network : TESTNET
 
----> checking dashd syncing status 
+---> checking florijncoind syncing status 
 
 -> protocolv : 70206
 -> blockcnt  : 146823
@@ -252,7 +252,7 @@ mn8 15.15.138.230:19999:m  ybv3cX4Gmn1ZK2ZgFgu51NADe3MXrtT7qP ENABLED
 
 ```
 
-(venv3) ~/dashmnb $ python bin/dashmnb.py -a mn7
+(venv3) ~/florijncoinmnb $ python bin/florijncoinmnb.py -a mn7
     ____             __  
    / __ \____ ______/ /_ 
   / / / / __ `/ ___/ __ \
@@ -276,7 +276,7 @@ mn8 15.15.138.230:19999:m  ybv3cX4Gmn1ZK2ZgFgu51NADe3MXrtT7qP ENABLED
 
 Network : TESTNET
 
----> checking dashd syncing status 
+---> checking florijncoind syncing status 
 
 -> protocolv : 70206
 -> blockcnt  : 146823
@@ -367,7 +367,7 @@ Yes, will relay
 
 ```
 
-(venv3) ~/dashmnb $ python bin/dashmnb.py -s
+(venv3) ~/florijncoinmnb $ python bin/florijncoinmnb.py -s
     ____             __  
    / __ \____ ______/ /_ 
   / / / / __ `/ ___/ __ \
@@ -391,7 +391,7 @@ Yes, will relay
 
 Network : TESTNET
 
----> checking dashd syncing status 
+---> checking florijncoind syncing status 
 
 -> protocolv : 70206
 -> blockcnt  : 146823
@@ -430,7 +430,7 @@ mn8 15.15.138.230:19999:m  ybv3cX4Gmn1ZK2ZgFgu51NADe3MXrtT7qP ENABLED
 
 ```
 
-(venv3) ~/dashmnb $ python bin/dashmnb.py -b
+(venv3) ~/florijncoinmnb $ python bin/florijncoinmnb.py -b
     ____             __  
    / __ \____ ______/ /_ 
   / / / / __ `/ ___/ __ \
@@ -454,7 +454,7 @@ mn8 15.15.138.230:19999:m  ybv3cX4Gmn1ZK2ZgFgu51NADe3MXrtT7qP ENABLED
 
 Network : TESTNET
 
----> checking dashd syncing status 
+---> checking florijncoind syncing status 
 
 -> protocolv : 70206
 -> blockcnt  : 146823
@@ -502,7 +502,7 @@ mn8  3  1022.50026940 yNYJy9ShtJWo2NFcT7sjRa2ucktTFFe71b
 
 ```
 
-(venv3) ~/dashmnb $ python bin/dashmnb.py -x mn5
+(venv3) ~/florijncoinmnb $ python bin/florijncoinmnb.py -x mn5
     ____             __  
    / __ \____ ______/ /_ 
   / / / / __ `/ ___/ __ \
@@ -526,7 +526,7 @@ mn8  3  1022.50026940 yNYJy9ShtJWo2NFcT7sjRa2ucktTFFe71b
 
 Network : TESTNET
 
----> checking dashd syncing status 
+---> checking florijncoind syncing status 
 
 -> protocolv : 70206
 -> blockcnt  : 146823

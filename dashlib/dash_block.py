@@ -8,7 +8,7 @@ import hashlib
 import x11_hash
 import struct
 
-from dash_hashs import *
+from florijncoin_hashs import *
 
 
 def calc_difficulty(nBits):

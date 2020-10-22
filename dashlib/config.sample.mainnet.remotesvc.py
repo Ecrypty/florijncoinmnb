@@ -6,8 +6,8 @@
 
 # https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki
 # purpose' / coin_type' / account' / change / address_index
-# Dash  : 44'/5'/account'/0/0
-# tDash : 44'/1'/account'/0/0
+# Florijncoin  : 44'/5'/account'/0/0
+# tFlorijncoin : 44'/1'/account'/0/0
 # bip32 path
 # 1 is selected to use trezor's web wallet and Keepkey's client
 account_no = 1
@@ -58,12 +58,12 @@ txs_cache_refresh_interval_hour = 0
 MOVE_1K_COLLATERAL = False
 
 # don't change
-# dash mainnet
+# florijncoin mainnet
 USE_SSH_TUNNEL = False
 rpcusessl = True
-rpcuser = 'dashmnb'
+rpcuser = 'florijncoinmnb'
 rpcpassword = 'iamok'
-rpcbindip = 'test.stats.dash.org'
+rpcbindip = 'test.stats.florijncoin.org'
 rpcport = 8080
 
 # network
@@ -71,7 +71,7 @@ MAINNET = True  # mainnet
 wif_prefix = 204  # cc
 addr_prefix = 76   # 4c
 script_prefix = 16 # 10
-coin_name = 'Dash'
+coin_name = 'Florijncoin'
 min_fee = 10000  # fee for tx
 # to display err on masternode.conf
 errorsnprogress = []

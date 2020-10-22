@@ -22,5 +22,5 @@ make
 sudo make altinstall
 sudo pip3.5 install virtualenv
 
-# do below when install dashmnb
+# do below when install florijncoinmnb
 # virtualenv -p python3.5 venv3

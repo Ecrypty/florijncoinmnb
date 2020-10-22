@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '.'))
 
-from dash_utils import *
+from florijncoin_utils import *
 
 
 def inv(a, n):

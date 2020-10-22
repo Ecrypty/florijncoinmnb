@@ -6,8 +6,8 @@
 
 # https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki
 # purpose' / coin_type' / account' / change / address_index
-# Dash  : 44'/5'/account'/0/0
-# tDash : 44'/1'/account'/0/0
+# Florijncoin  : 44'/5'/account'/0/0
+# tFlorijncoin : 44'/1'/account'/0/0
 # bip32 path
 # 1 is selected to use trezor's web wallet and Keepkey's client
 account_no = 1
@@ -90,13 +90,13 @@ MOVE_1K_COLLATERAL = False
 
 
 # don't change
-# dash testnet
+# florijncoin testnet
 # network
 MAINNET = False  # testnet
 wif_prefix = 239  # ef
 addr_prefix = 140  # 8c
 script_prefix = 19 # 13
-coin_name = 'tDash'
+coin_name = 'tFlorijncoin'
 min_fee = 10000  # fee for tx
 # to display err on masternode.conf
 errorsnprogress = []

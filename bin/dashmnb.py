@@ -2,22 +2,22 @@
 # -*- coding: utf-8 -*-
 # mnb.py
 
-# code from https://github.com/dashpay/electrum-dash
+# code from https://github.com/florijncoinpay/electrum-florijncoin
 # most bitcoin code from https://github.com/vbuterin/pybitcointools
 # ref :
-# https://github.com/dashpay/dash/blob/v0.12.1.x/dash-docs/protocol-documentation.md
+# https://github.com/florijncoinpay/florijncoin/blob/v0.12.1.x/florijncoin-docs/protocol-documentation.md
 
 import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'dashlib'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'florijncoinlib'))
 
 import argparse
 import time
 import signal
 import atexit
 
-from dashlib import *
+from florijncoinlib import *
 
 from bitcoinrpc.authproxy import AuthServiceProxy, JSONRPCException
 
@@ -51,15 +51,15 @@ def main(args):
             err_msg)
 
     try:
-        print('--> get dash explorer block count')
+        print('--> get florijncoin explorer block count')
         #explorer_blockcount = get_explorer_blockcount()
 
-        if rpcbindip == "test.stats.dash.org":
+        if rpcbindip == "test.stats.florijncoin.org":
             print('--> get remotesvc status')
         else:
-            print('--> get dashd status')
+            print('--> get florijncoind status')
 
-        protocolversion = check_dashd_syncing(access)
+        protocolversion = check_florijncoind_syncing(access)
         blockcount = get_getblockcount(access)
         blockhash = get_block_hash(blockcount, access)
 
@@ -74,7 +74,7 @@ def main(args):
             else:
                 explorer_blockcount = get_explorer_blockcount()
 
-            assert int(explorer_blockcount) == int(blockcount), "blockcount mismatch, try again : exp : %s <--> dashd : %s" % (explorer_blockcount, blockcount)
+            assert int(explorer_blockcount) == int(blockcount), "blockcount mismatch, try again : exp : %s <--> florijncoind : %s" % (explorer_blockcount, blockcount)
 
         print()
 
@@ -244,12 +244,12 @@ def main(args):
 
         for m in mn_config:
             print("\t---> getting balance of : ", m.get('alias'))
-            m["txs"], m["collateral_dashd_balance"], m["bip32sendto_all"] = get_unspent_txs(m, blockcount, access, SEND_TO_BIP32, bip32_unused)
+            m["txs"], m["collateral_florijncoind_balance"], m["bip32sendto_all"] = get_unspent_txs(m, blockcount, access, SEND_TO_BIP32, bip32_unused)
 
         need_wallet_rescan = print_balance(mn_config, have_unconfirmed_tx)
 
         if need_wallet_rescan:
-            err_msg = '\n\trestarting Dash-QT or dashd with -rescan needed'
+            err_msg = '\n\trestarting Florijncoin-QT or florijncoind with -rescan needed'
             print_err_exit(
                 get_caller_name(),
                 get_function_name(),
@@ -273,7 +273,7 @@ def main(args):
     if args.maketx or args.xfer:
 
         if need_wallet_rescan:
-            err_msg = '\n\t1) to spend mn payout in HW Wallet, restart Dash-QT or dashd with -rescan\n\t2) if did -rescan and still see this messge, check if 1K was spent'
+            err_msg = '\n\t1) to spend mn payout in HW Wallet, restart Florijncoin-QT or florijncoind with -rescan\n\t2) if did -rescan and still see this messge, check if 1K was spent'
             print_err_exit(
                 get_caller_name(),
                 get_function_name(),
@@ -283,7 +283,7 @@ def main(args):
             print('\n[making txs]')
 
             for m in mn_config:
-                if len(m.get('collateral_dashd_balance')) > 0 \
+                if len(m.get('collateral_florijncoind_balance')) > 0 \
                     and len(m.get('txs', None)) > 0 \
                     and m.get('receiving_address', None) is not None:
 

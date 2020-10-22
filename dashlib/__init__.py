@@ -9,19 +9,19 @@ try:
 except Exception as e:
     print(e)
     print()
-    print("please configure dashlib/config.py")
-    print("'python dashlib/config.py' will show error")
+    print("please configure florijncoinlib/config.py")
+    print("'python florijncoinlib/config.py' will show error")
     sys.exit()
 
-from dash_b58 import *
-#from dash_block import *
-from dash_ecdsa import *
-from dash_hashs import *
-from dash_jacobian import *
-from dash_keys import *
-from dash_script import *
-from dash_tx import *
-from dash_utils import *
+from florijncoin_b58 import *
+#from florijncoin_block import *
+from florijncoin_ecdsa import *
+from florijncoin_hashs import *
+from florijncoin_jacobian import *
+from florijncoin_keys import *
+from florijncoin_script import *
+from florijncoin_tx import *
+from florijncoin_utils import *
 from mnb_explorer import *
 from mnb_hwwallet import *
 from mnb_makemnb import *
@@ -45,7 +45,7 @@ try:
 
     hw_list = ['KEEPKEY', 'TREZOR', 'LEDGERNANOS']
     if TYPE_HW_WALLET.upper() not in hw_list:
-        err_msg = 'check TYPE_HW_WALLET in dashlib/config.py'
+        err_msg = 'check TYPE_HW_WALLET in florijncoinlib/config.py'
         print_err_exit(
             get_caller_name(),
             get_function_name(),

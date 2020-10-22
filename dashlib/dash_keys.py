@@ -8,10 +8,10 @@ import binascii
 import hashlib
 
 from config import *
-from dash_hashs import *
-from dash_utils import *
-from dash_b58 import *
-from dash_jacobian import *
+from florijncoin_hashs import *
+from florijncoin_utils import *
+from florijncoin_b58 import *
+from florijncoin_jacobian import *
 
 
 long = int

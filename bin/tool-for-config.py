@@ -2,14 +2,14 @@
 # -*- coding: utf-8 -*-
 # mnb.py
 
-# code from https://github.com/dashpay/electrum-dash
+# code from https://github.com/florijncoinpay/electrum-florijncoin
 # most bitcoin code from https://github.com/vbuterin/pybitcointools
 # ref :
-# https://github.com/dashpay/dash/blob/v0.12.1.x/dash-docs/protocol-documentation.md
+# https://github.com/florijncoinpay/florijncoin/blob/v0.12.1.x/florijncoin-docs/protocol-documentation.md
 import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'dashlib'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'florijncoinlib'))
 
 import argparse
 import time
@@ -17,14 +17,14 @@ import signal
 import ssl
 from collections import Counter
 
-from dash_b58 import *
-from dash_ecdsa import *
-from dash_hashs import *
-from dash_jacobian import *
-from dash_keys import *
-from dash_script import *
-from dash_tx import *
-from dash_utils import *
+from florijncoin_b58 import *
+from florijncoin_ecdsa import *
+from florijncoin_hashs import *
+from florijncoin_jacobian import *
+from florijncoin_keys import *
+from florijncoin_script import *
+from florijncoin_tx import *
+from florijncoin_utils import *
 from mnb_explorer import *
 from mnb_hwwallet import *
 from mnb_makemnb import *

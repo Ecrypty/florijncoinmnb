@@ -23,9 +23,9 @@ python3 -V
 
 #### if version is 3.4.2 : follow Ubuntu-14.04 install 
 
-[Ubuntu 14.04 --> use this link](https://github.com/chaeplin/dashmnb/tree/master/others/pics/ubuntu-14.04)
+[Ubuntu 14.04 --> use this link](https://github.com/chaeplin/florijncoinmnb/tree/master/others/pics/ubuntu-14.04)
 
 #### if version is above 3.5.1 : follow Ubuntu-16.04 install
 
-[Ubuntu 16.04 --> use this link](https://github.com/chaeplin/dashmnb/tree/master/others/pics/ubuntu-16.04)
+[Ubuntu 16.04 --> use this link](https://github.com/chaeplin/florijncoinmnb/tree/master/others/pics/ubuntu-16.04)
 

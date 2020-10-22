@@ -3,10 +3,10 @@
 import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'dashlib'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'florijncoinlib'))
 
 from bip32utils import BIP32Key
-from dashlib import *
+from florijncoinlib import *
 
 
 def main():
@@ -33,7 +33,7 @@ def main():
                 address   = (nodedata.get('address')).decode("utf-8")
     
                 print(
-                     'Dash' +
+                     'Florijncoin' +
                      ' address: ' +
                      '{:20}'.format(addr_path) +
                      ' ' +

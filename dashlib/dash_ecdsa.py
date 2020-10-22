@@ -5,9 +5,9 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '.'))
 import hmac
 import base64
 
-from dash_utils import *
-from dash_hashs import *
-from dash_jacobian import *
+from florijncoin_utils import *
+from florijncoin_hashs import *
+from florijncoin_jacobian import *
 
 
 def get_pubkey_format(pub):

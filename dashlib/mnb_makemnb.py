@@ -4,8 +4,8 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '.'))
 
 import time
 
-from dash_utils import *
-from dash_tx import *
+from florijncoin_utils import *
+from florijncoin_tx import *
 from mnb_misc import *
 from mnb_signing import *
 from mnb_rpc import *

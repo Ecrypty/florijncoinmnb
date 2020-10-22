@@ -11,7 +11,7 @@ def clear_screen():
 def check_version():
     from mnb_explorer import get_version_txt
 
-    cur_version = get_dashmnbversion()
+    cur_version = get_florijncoinmnbversion()
     git_version = get_version_txt()
 
     if ((cur_version.get('major') != git_version.get('major', None)) or
@@ -31,7 +31,7 @@ def logo_show(skip):
 
     f = Figlet(font='slant')
     #f = Figlet(font='small')
-    print(f.renderText('Dash Masternode with HW Wallet'))
+    print(f.renderText('Florijncoin Masternode with HW Wallet'))
     #print('\n\t\t\tdonation : xxxxxxxxxx')
     #print('\t\t\tby : chaeplin XiDWe5fkVcrXBQApmCFQUxpue5iuWcbmcK\n')
     if not skip:
@@ -88,18 +88,18 @@ def get_txidtxidn(txid, txidn):
         return txid + '-' + str(txidn)
 
 
-def print_mnlist(mnconfig, ipmatch, mnstatus, dashninja_cnt):
+def print_mnlist(mnconfig, ipmatch, mnstatus, florijncoinninja_cnt):
     from config import MAINNET
     if MAINNET:
         print(mnconfig.get('alias') + '\t' + mnconfig.get('ipport') + ':' +
-            ipmatch + '\t' + mnconfig.get('collateral_address') + ' ' + dashninja_cnt + ' ' + mnstatus)
+            ipmatch + '\t' + mnconfig.get('collateral_address') + ' ' + florijncoinninja_cnt + ' ' + mnstatus)
     else:
         print(mnconfig.get('alias') + '\t' + mnconfig.get('ipport') + ':' +
             ipmatch + '\t' + mnconfig.get('collateral_address') + ' ' + mnstatus)        
 
-def get_dashninja(mn_config):
+def get_florijncoinninja(mn_config):
     import simplejson as json
-    from mnb_explorer import get_mnstatus_dashninja
+    from mnb_explorer import get_mnstatus_florijncoinninja
 
     vins =[]
     for m in mn_config:
@@ -107,7 +107,7 @@ def get_dashninja(mn_config):
         if vin != None:
             vins.append(vin)
 
-    status_ninja = get_mnstatus_dashninja(vins)
+    status_ninja = get_mnstatus_florijncoinninja(vins)
     if status_ninja:
         mnj = {}
         if status_ninja.get('status') == 'OK':
@@ -131,7 +131,7 @@ def print_mnstatus(mn_config, mns, mna):
     print()
     print('[masternodes status]')
     if MAINNET:
-        mnj = get_dashninja(mn_config)
+        mnj = get_florijncoinninja(mn_config)
         if mnj:
             print('alias\tip (m: ip/port match)\tcollateral address\t\t   dn\t status')
         else:
@@ -140,26 +140,26 @@ def print_mnstatus(mn_config, mns, mna):
         print('alias\tip (m: ip/port match)\tcollateral address\t\t   status')
 
     for m in mn_config:
-        dashninja_cnt = '-/-'
+        florijncoinninja_cnt = '-/-'
         mna_ip = mna.get(m.get('collateral_txidtxidn', '-------'), '-')
         mns_status = mns.get(m.get('collateral_txidtxidn', '-------'), '-')
 
         if MAINNET:
             if mnj:
                 if mnj.get(m.get('collateral_txidtxidn')) != None:
-                    dashninja_cnt = str(mnj.get(m.get('collateral_txidtxidn')).get('UnlistedCount')) + '/' + str(mnj.get(m.get('collateral_txidtxidn')).get('InactiveCount')) + '/' + str(mnj.get(m.get('collateral_txidtxidn')).get('ActiveCount'))
+                    florijncoinninja_cnt = str(mnj.get(m.get('collateral_txidtxidn')).get('UnlistedCount')) + '/' + str(mnj.get(m.get('collateral_txidtxidn')).get('InactiveCount')) + '/' + str(mnj.get(m.get('collateral_txidtxidn')).get('ActiveCount'))
         
         if m.get('ipport') != mna_ip:
             ipmatch = '-'
         else:
             ipmatch = 'm'
 
-        print_mnlist(m, ipmatch, mns_status, dashninja_cnt)
+        print_mnlist(m, ipmatch, mns_status, florijncoinninja_cnt)
 
     if MAINNET:
-        print('\n* dn: dashninja status : UnlistedCount / InactiveCount / ActiveCount')
+        print('\n* dn: florijncoinninja status : UnlistedCount / InactiveCount / ActiveCount')
     else:
-        print('\n* be sure to check masternode status again using online tools like dashninja\n')
+        print('\n* be sure to check masternode status again using online tools like florijncoinninja\n')
 
 
 def get_function_name():
@@ -170,7 +170,7 @@ def get_caller_name():
     return sys._getframe(2).f_code.co_name
 
 
-def get_dashmnbversion():
+def get_florijncoinmnbversion():
     import simplejson as json
     version_file = os.path.join(
         os.path.dirname(
@@ -187,7 +187,7 @@ def print_err_exit(
         err_msg,
         errargs=None):
 
-    VERSION = get_dashmnbversion()
+    VERSION = get_florijncoinmnbversion()
 
     msg = '\n\n\tversion  : %s.%s.%s\n' % (VERSION.get(
         'major'), VERSION.get('minor'), VERSION.get('fix'))
@@ -210,7 +210,7 @@ def now():
 def printdbg(str):
     ts = time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime(now()))
     logstr = "{} {}".format(ts, str)
-    if os.environ.get('DASHMNB_DEBUG', None):
+    if os.environ.get('FLRNMNB_DEBUG', None):
         print(logstr)
 
 

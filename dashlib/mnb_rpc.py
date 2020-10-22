@@ -3,7 +3,7 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '.'))
 
 from config import *
-from dash_tx import *
+from florijncoin_tx import *
 from mnb_misc import *
 
 
@@ -25,7 +25,7 @@ def get_rawtxid(alias, txid, txidn, access):
         return None
 
     except Exception as e:
-        err_msg = '\n\t===> 1) check account_no\n\t===> 2) Dash-QT or dashd running ?'
+        err_msg = '\n\t===> 1) check account_no\n\t===> 2) Florijncoin-QT or florijncoind running ?'
         print_err_exit(
             get_caller_name(),
             get_function_name(),
@@ -39,14 +39,14 @@ def rpcgetinfo(access):
         istestnet = getinfo.get('testnet')
 
         if MAINNET and istestnet:
-            err_msg = 'dashd is on testnet, check config plz'
+            err_msg = 'florijncoind is on testnet, check config plz'
             print_err_exit(
                 get_caller_name(),
                 get_function_name(),
                 err_msg)
 
         if MAINNET == False and istestnet == False:
-            err_msg = 'dashd is on mainnet, check config plz'
+            err_msg = 'florijncoind is on mainnet, check config plz'
             print_err_exit(
                 get_caller_name(),
                 get_function_name(),
@@ -55,7 +55,7 @@ def rpcgetinfo(access):
         return getinfo.get('protocolversion')
 
     except Exception as e:
-        err_msg = 'Dash-QT or dashd running ?'
+        err_msg = 'Florijncoin-QT or florijncoind running ?'
         print_err_exit(
             get_caller_name(),
             get_function_name(),
@@ -64,7 +64,7 @@ def rpcgetinfo(access):
 
 
 def checksynced(protocolversion, access):
-    if 'rpcusessl' in globals() and rpcusessl and rpcbindip == "test.stats.dash.org":
+    if 'rpcusessl' in globals() and rpcusessl and rpcbindip == "test.stats.florijncoin.org":
         return True
 
     try:
@@ -76,14 +76,14 @@ def checksynced(protocolversion, access):
             return status.get('IsSynced')
 
         else:
-            err_msg = 'Dash 12.0 not supported'
+            err_msg = 'Florijncoin 12.0 not supported'
             print_err_exit(
                 get_caller_name(),
                 get_function_name(),
                 err_msg)
 
     except Exception as e:
-        err_msg = 'Dash-QT or dashd running ?'
+        err_msg = 'Florijncoin-QT or florijncoind running ?'
         print_err_exit(
             get_caller_name(),
             get_function_name(),
@@ -91,7 +91,7 @@ def checksynced(protocolversion, access):
             e.args)
 
 
-def check_dashd_syncing(access):
+def check_florijncoind_syncing(access):
     from progress.spinner import Spinner
     spinner = Spinner('\n--> checking syncing status ')
     protocolversion = rpcgetinfo(access)
@@ -117,7 +117,7 @@ def check_masternodelist(access):
         return mn_of_net
 
     except Exception as e:
-        err_msg = 'Dash-QT or dashd running ?'
+        err_msg = 'Florijncoin-QT or florijncoind running ?'
         print_err_exit(
             get_caller_name(),
             get_function_name(),
@@ -131,7 +131,7 @@ def check_masternodeaddr(access):
         return mn_of_net
 
     except Exception as e:
-        err_msg = 'Dash-QT or dashd running ?'
+        err_msg = 'Florijncoin-QT or florijncoind running ?'
         print_err_exit(
             get_caller_name(),
             get_function_name(),
@@ -145,7 +145,7 @@ def validateaddress(address, access):
         return r.get('isvalid')
 
     except Exception as e:
-        err_msg = 'Dash-QT or dashd running ?'
+        err_msg = 'Florijncoin-QT or florijncoind running ?'
         print_err_exit(
             get_caller_name(),
             get_function_name(),
@@ -159,7 +159,7 @@ def decoderawtransaction(signedrawtx, access):
         return r
 
     except Exception as e:
-        err_msg = 'Dash-QT or dashd running ?'
+        err_msg = 'Florijncoin-QT or florijncoind running ?'
         print_err_exit(
             get_caller_name(),
             get_function_name(),
@@ -173,7 +173,7 @@ def sendrawtransaction(signedrawtx, access):
         return r
 
     except Exception as e:
-        err_msg = 'Dash-QT or dashd running ?'
+        err_msg = 'Florijncoin-QT or florijncoind running ?'
         print_err_exit(
             get_caller_name(),
             get_function_name(),
@@ -190,7 +190,7 @@ def getaddressbalance(address, access):
         return r.get('balance')
 
     except Exception as e:
-        err_msg = '\n\tif dashd/QT is running, check\n\thttps://github.com/chaeplin/dashmnb#to-run-own-dashd--dash-qt'
+        err_msg = '\n\tif florijncoind/QT is running, check\n\thttps://github.com/chaeplin/florijncoinmnb#to-run-own-florijncoind--florijncoin-qt'
         print_err_exit(
             get_caller_name(),
             get_function_name(),
@@ -219,7 +219,7 @@ def getaddressutxos(address, access):
         return r
 
     except Exception as e:
-        err_msg = 'Dash-QT or dashd running ?'
+        err_msg = 'Florijncoin-QT or florijncoind running ?'
         print_err_exit(
             get_caller_name(),
             get_function_name(),
@@ -235,7 +235,7 @@ def getaddressmempool(address, access):
         return r
 
     except Exception as e:
-        err_msg = 'Dash-QT or dashd running ?'
+        err_msg = 'Florijncoin-QT or florijncoind running ?'
         print_err_exit(
             get_caller_name(),
             get_function_name(),
@@ -251,7 +251,7 @@ def getaddresstxids(address, access):
         return r
 
     except Exception as e:
-        err_msg = 'Dash-QT or dashd running ?'
+        err_msg = 'Florijncoin-QT or florijncoind running ?'
         print_err_exit(
             get_caller_name(),
             get_function_name(),
@@ -264,7 +264,7 @@ def getaddresstxids(address, access):
 #        return r
 #
 #    except Exception as e:
-#        err_msg = 'Dash-QT or dashd running ?'
+#        err_msg = 'Florijncoin-QT or florijncoind running ?'
 #        print_err_exit(
 #            get_caller_name(),
 #            get_function_name(),
@@ -278,7 +278,7 @@ def get_getblockcount(access):
         return r
 
     except Exception as e:
-        err_msg = 'Dash-QT or dashd running ?'
+        err_msg = 'Florijncoin-QT or florijncoind running ?'
         print_err_exit(
             get_caller_name(),
             get_function_name(),
@@ -292,7 +292,7 @@ def get_block_hash(no, access):
         return r
 
     except Exception as e:
-        err_msg = 'Dash-QT or dashd running ?'
+        err_msg = 'Florijncoin-QT or florijncoind running ?'
         print_err_exit(
             get_caller_name(),
             get_function_name(),
@@ -306,7 +306,7 @@ def rpc_masternode(what, hexto, access):
         return r
 
     except Exception as e:
-        err_msg = 'Dash-QT or dashd running ?'
+        err_msg = 'Florijncoin-QT or florijncoind running ?'
         print_err_exit(
             get_caller_name(),
             get_function_name(),
@@ -320,7 +320,7 @@ def rpc_getproposals(access):
         return r
 
     except Exception as e:
-        err_msg = 'Dash-QT or dashd running ?'
+        err_msg = 'Florijncoin-QT or florijncoind running ?'
         print_err_exit(
             get_caller_name(),
             get_function_name(),
@@ -334,7 +334,7 @@ def rpc_gettriggers(access):
         return r
 
     except Exception as e:
-        err_msg = 'Dash-QT or dashd running ?'
+        err_msg = 'Florijncoin-QT or florijncoind running ?'
         print_err_exit(
             get_caller_name(),
             get_function_name(),
@@ -347,7 +347,7 @@ def rpc_getcurrentvotes(proposal_hash, access):
         return r
 
     except Exception as e:
-        err_msg = 'Dash-QT or dashd running ?'
+        err_msg = 'Florijncoin-QT or florijncoind running ?'
         print_err_exit(
             get_caller_name(),
             get_function_name(),
@@ -379,7 +379,7 @@ def rpc_voteraw(voteconf, access):
             e.args = ''
             err_msg = 'have voted within 1 hour? try 1 hour later'
         else:
-            err_msg = 'Dash-QT or dashd running ?'
+            err_msg = 'Florijncoin-QT or florijncoind running ?'
         print_err_exit(
             get_caller_name(),
             get_function_name(),

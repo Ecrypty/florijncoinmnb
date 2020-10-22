@@ -32,7 +32,7 @@ def chain_path(mpath):
 
 
 def get_chain_pubkey(client):
-    if not os.environ.get('DASHMNB_DEBUG', None):
+    if not os.environ.get('FLRNMNB_DEBUG', None):
 
         from progress.bar import ChargingBar
 
@@ -42,11 +42,11 @@ def get_chain_pubkey(client):
         chain_pubkey = {}
 
         print('---> get address from hw wallet : %s' % max_gab)
-        if not os.environ.get('DASHMNB_DEBUG', None):
+        if not os.environ.get('FLRNMNB_DEBUG', None):
             chargingBar = ChargingBar('---> processing', max=max_gab)
 
         for i in range(max_gab):
-            if not os.environ.get('DASHMNB_DEBUG', None):
+            if not os.environ.get('FLRNMNB_DEBUG', None):
                 chargingBar.next()
             child_path = '%s%s' % (mpath + '/', str(i))
 
@@ -68,7 +68,7 @@ def get_chain_pubkey(client):
             if TYPE_HW_WALLET.lower().startswith("ledgernanos"):
                 time.sleep(1)
 
-        if not os.environ.get('DASHMNB_DEBUG', None):
+        if not os.environ.get('FLRNMNB_DEBUG', None):
             chargingBar.next()
             chargingBar.finish()
 
@@ -108,8 +108,8 @@ def get_chain_pubkey(client):
 def get_mpath(default_account=False):
     # return without address_index
 
-    #  Dash  : 44'/5'/account'/0/0
-    #  tDash : 44'/1'/account'/0/0
+    #  Florijncoin  : 44'/5'/account'/0/0
+    #  tFlorijncoin : 44'/1'/account'/0/0
 
     printdbg('get_mpath : default_account : %s' % bool(default_account))
     printdbg('get_mpath : network mainnet : %s' % MAINNET)
@@ -258,7 +258,7 @@ def check_hw_wallet():
                     err_msg)
 
     else:
-        err_msg = "Can't run dashmnb without hw wallet"
+        err_msg = "Can't run florijncoinmnb without hw wallet"
         print_err_exit(
             get_caller_name(),
             get_function_name(),

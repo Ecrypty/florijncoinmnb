@@ -8,7 +8,7 @@ Keepkey
 
 ![1](./keepkey01.png)
 
-* slect an account for masternode(s), click `receive dash`
+* slect an account for masternode(s), click `receive florijncoin`
 
 ![1](./keepkey02.png)
 

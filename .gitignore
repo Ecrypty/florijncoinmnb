@@ -7,24 +7,24 @@ masternode.conf
 masternode.mainnet.conf
 masternode.testnet.conf
 
-dashlib/1.py
+florijncoinlib/1.py
 
-dashlib/config.testnet.py
+florijncoinlib/config.testnet.py
 
-dashlib/config.main.py
+florijncoinlib/config.main.py
 
-dashlib/config.test.py
+florijncoinlib/config.test.py
 
 mnconf/masternode.zero.conf
 
-dashlib/config.main.remote.py
+florijncoinlib/config.main.remote.py
 
-dashlib/config.main.rpc.py
+florijncoinlib/config.main.rpc.py
 
 devel_notes.txt
 
 mnconf/masternode.mainnet.ledgernanos.conf
 
-dashlib/test.py
+florijncoinlib/test.py
 
 bin/mnb.py

@@ -5,7 +5,7 @@ Windows 10
 - python 3.6.0 : https://www.python.org
 - git cmd : https://git-for-windows.github.io
 - Visual C++ 2015 Build Tools : http://landinghub.visualstudio.com/visual-cpp-build-tools
-- dashmnb : https://github.com/chaeplin/dashmnb
+- florijncoinmnb : https://github.com/chaeplin/florijncoinmnb
 
 
 ### python install
@@ -49,8 +49,8 @@ Windows 10
 ![1](v02.png)
 
 
-### dashmnb install
-* https://github.com/chaeplin/dashmnb
+### florijncoinmnb install
+* https://github.com/chaeplin/florijncoinmnb
 
 - open cmd windows
 - install virtualenv
@@ -63,16 +63,16 @@ pip install virtualenv
 ```
 git -v
 ```
-- install dashmnb
+- install florijncoinmnb
 ```
-git clone https://github.com/chaeplin/dashmnb
+git clone https://github.com/chaeplin/florijncoinmnb
 ```
 ![1](i02.png)
 
 
-- cd dashmnb and make virtualenv
+- cd florijncoinmnb and make virtualenv
 ```
-cd dashmnb
+cd florijncoinmnb
 virtualenv venv3
 ```
 ![1](i03.png)
@@ -95,12 +95,12 @@ pip install -r requirements.txt
 ```
 ![1](i06.png)
 
-- open dashmnb folder
+- open florijncoinmnb folder
 ![1](i07.png)
 
 - copy config.sample.py to config.py and edit
 * to use "remote rpc svc by chaeplin" : config.sample.mainnet.remotesvc.py
-* to run "your own local/remote dashd" : config.sample.mainnet.py
+* to run "your own local/remote florijncoind" : config.sample.mainnet.py
 
 ![1](i08.png)
 ![1](i09.png)
@@ -111,11 +111,11 @@ pip install -r requirements.txt
 
 - test run
 ```
-cd dashmnb
+cd florijncoinmnb
 venv3\Scripts\activate.bat
-python bin\dashmnb.py -c
+python bin\florijncoinmnb.py -c
 ```
 ![1](i12.png)
 
-- go https://github.com/chaeplin/dashmnb#configuration
-* https://github.com/chaeplin/dashmnb#configuration
+- go https://github.com/chaeplin/florijncoinmnb#configuration
+* https://github.com/chaeplin/florijncoinmnb#configuration

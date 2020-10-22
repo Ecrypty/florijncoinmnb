@@ -1,4 +1,4 @@
-run dash masternode with hardware wallet / dashmnb simplify local cold wallet part
+run florijncoin masternode with hardware wallet / florijncoinmnb simplify local cold wallet part
 ==================================================================================
 
 # read faq of trezor, and understand how trezor/keepkey works
@@ -18,7 +18,7 @@ run dash masternode with hardware wallet / dashmnb simplify local cold wallet pa
 - [Update](#update)
 - [Debug](#debug)
 - [Configuration](#configuration)
-- [Runowndashd](#to-run-own-dashd--dash-qt)
+- [Runownflorijncoind](#to-run-own-florijncoind--florijncoin-qt)
 - [Vote](#vote)
 - [Support](#support)
 - [Thankyou](#Thanks)
@@ -29,19 +29,19 @@ run dash masternode with hardware wallet / dashmnb simplify local cold wallet pa
     - voting works
     
 ## Blocks
-![1](./others/pics/dashmnb2.png)
+![1](./others/pics/florijncoinmnb2.png)
 
 ## Q&A
 
 ###### Q : why firmware update ?
-    - to support Dash testnet, both trezor and keepkey has only Mainnet.
+    - to support Florijncoin testnet, both trezor and keepkey has only Mainnet.
     - with Mainnet, no need to update firmware. Use official firmware.
 
 ###### Q : which hw wallet supported ?
     - Trezor
     - Keepkey
     - Ledger nano s and blue(no transaction yet)
-    - dashmnb will not run without hw wallet
+    - florijncoinmnb will not run without hw wallet
 
 
 ###### Q : Which OS supported ?
@@ -54,17 +54,17 @@ run dash masternode with hardware wallet / dashmnb simplify local cold wallet pa
     - Mac OSX
 
 
-###### Q : what can dashmnb do
-    - dashmnb simplify local cold wallet part
+###### Q : what can florijncoinmnb do
+    - florijncoinmnb simplify local cold wallet part
     - config check (alias, address, ip, key, pkey, hw wallet path)
     - start masternode missing, selected
     - show masternode status
     - send payout in hw wallet
     - send collateral + coins(mn payouts) in hw wallet
-    - ssh tunnel to use remote dashd
+    - ssh tunnel to use remote florijncoind
     - can use remote rpc service
-###### Q : can I use multiple Account #'x' with dashmnb ?
-    - dashmnb support only single Account #'x'(single path)
+###### Q : can I use multiple Account #'x' with florijncoinmnb ?
+    - florijncoinmnb support only single Account #'x'(single path)
     - can't use mixed account name(Account #1 + Account #2) together
     - can't use mixed(ex: 44'/5'/x'/0/0 + 44'/5'/y'/0/0) path together
 
@@ -86,16 +86,16 @@ txs_cache_refresh_interval_hour = 0
 
 
 ###### Q : example for web wallet of Trezor ?
-check [trezor example](https://github.com/chaeplin/dashmnb/tree/master/others/pics/trezor/README.md)
+check [trezor example](https://github.com/chaeplin/florijncoinmnb/tree/master/others/pics/trezor/README.md)
 
 ###### Q : example for keepkey ?
-check [keepkey example](https://github.com/chaeplin/dashmnb/tree/master/others/pics/keepkey/README.md)
+check [keepkey example](https://github.com/chaeplin/florijncoinmnb/tree/master/others/pics/keepkey/README.md)
 
 
 ###### Q : spend payout
     - don't use trezor web wallet to move payout in Masternode account
     - it will break your masternode. trezor web wallet has no coincontrol
-    - use dashmnb.py -x or  dashmnb.py -x mnalias1 mnalias2. 
+    - use florijncoinmnb.py -x or  florijncoinmnb.py -x mnalias1 mnalias2. 
 
 ###### Q : how 'remote rpc service by chaeplin' works ?
     - nginx web server is used reverse proxy
@@ -104,16 +104,16 @@ check [keepkey example](https://github.com/chaeplin/dashmnb/tree/master/others/p
     - http basic auth to nginx is used
     - using nginx's proxy_set_header is used to change auth to rpc
     - rpc user name and password on config.py is only for web auth
-    - copy dashlib/config.sample.mainnet.remotesvc.py as dashlib/config.py to use 
+    - copy florijncoinlib/config.sample.mainnet.remotesvc.py as florijncoinlib/config.py to use 
 
-###### Q : dashmnb ask PIN(or PASSPHRASE) of Trezor/Keepkey, why ?
+###### Q : florijncoinmnb ask PIN(or PASSPHRASE) of Trezor/Keepkey, why ?
 ![1](./tech/trezor-api.png)
 
 read [https://doc.satoshilabs.com/trezor-faq/](https://doc.satoshilabs.com/trezor-faq/)
 
 [https://doc.satoshilabs.com/trezor-tech/api.html](https://doc.satoshilabs.com/trezor-tech/api.html)
 
-    - dashmnb use python-trezor / python-keepkey as API to communicate Trezor/Keepkey
+    - florijncoinmnb use python-trezor / python-keepkey as API to communicate Trezor/Keepkey
 
 [https://github.com/chaeplin/python-trezor](https://github.com/chaeplin/python-trezor)
     
@@ -121,8 +121,8 @@ read [https://doc.satoshilabs.com/trezor-faq/](https://doc.satoshilabs.com/trezo
     
     - The API ask you PIN(or PASSPHRASE) when first connected or a transaction requested
 
-###### Q : Is there any privacy concern when using `remote dashd/rpc service by you` 
-    - dashmnb use rpc command to get a blockchain info.
+###### Q : Is there any privacy concern when using `remote florijncoind/rpc service by you` 
+    - florijncoinmnb use rpc command to get a blockchain info.
     - rpc command are following, and no logging occur on rpc command
 ``` 
     decoderawtransaction --> to get a transaction is correct
@@ -142,17 +142,17 @@ read [https://doc.satoshilabs.com/trezor-faq/](https://doc.satoshilabs.com/trezo
     mnsync               --> to get sync status
 ```
 
-    - dashmnb connects remote service using ssl  
-    - However `remote dashd/rpc service` use nginx(web server) as frontend
+    - florijncoinmnb connects remote service using ssl  
+    - However `remote florijncoind/rpc service` use nginx(web server) as frontend
 
-[https://github.com/chaeplin/dash-ticker/tree/master/web/nginx](https://github.com/chaeplin/dash-ticker/tree/master/web/nginx) has frontend configuration
+[https://github.com/chaeplin/florijncoin-ticker/tree/master/web/nginx](https://github.com/chaeplin/florijncoin-ticker/tree/master/web/nginx) has frontend configuration
 
     - As nginx(web server) leave a log containning ip address of user like following
 ```    
-10.10.10.1 - dashmnb [18/Feb/2017:06:13:33 +0000] "POST / HTTP/1.1" 200 227 "-" "AuthServiceProxy/0.1" "-" [-] [-] []
-10.10.10.1 - dashmnb [18/Feb/2017:06:13:39 +0000] "POST / HTTP/1.1" 200 227 "-" "AuthServiceProxy/0.1" "-" [-] [-] []
-10.10.10.1 - dashmnb [18/Feb/2017:06:13:44 +0000] "POST / HTTP/1.1" 200 92 "-" "AuthServiceProxy/0.1" "-" [-] [-] []
-10.10.10.1 - dashmnb [18/Feb/2017:06:13:54 +0000] "POST / HTTP/1.1" 200 359050 "-" "AuthServiceProxy/0.1" "-" [-] [-] []
+10.10.10.1 - florijncoinmnb [18/Feb/2017:06:13:33 +0000] "POST / HTTP/1.1" 200 227 "-" "AuthServiceProxy/0.1" "-" [-] [-] []
+10.10.10.1 - florijncoinmnb [18/Feb/2017:06:13:39 +0000] "POST / HTTP/1.1" 200 227 "-" "AuthServiceProxy/0.1" "-" [-] [-] []
+10.10.10.1 - florijncoinmnb [18/Feb/2017:06:13:44 +0000] "POST / HTTP/1.1" 200 92 "-" "AuthServiceProxy/0.1" "-" [-] [-] []
+10.10.10.1 - florijncoinmnb [18/Feb/2017:06:13:54 +0000] "POST / HTTP/1.1" 200 359050 "-" "AuthServiceProxy/0.1" "-" [-] [-] []
 ```
     - The ip address is `privacy concern`
 
@@ -164,16 +164,16 @@ read [https://doc.satoshilabs.com/trezor-faq/](https://doc.satoshilabs.com/trezo
 
 
 ```
-(venv3) > python bin/dashmnb.py -a mn_alias_1
-(venv3) > python bin/dashmnb.py -a mn_alias_1 mn_alias_2
+(venv3) > python bin/florijncoinmnb.py -a mn_alias_1
+(venv3) > python bin/florijncoinmnb.py -a mn_alias_1 mn_alias_2
 ```
 
 
 
 ## Help
 ```
-python bin/dashmnb.py 
-usage: dashmnb.py [-h] [-c] [-s] [-a] [-b] [-y] [-n] [-f] [-q] [-l] [-m] [-x]
+python bin/florijncoinmnb.py 
+usage: florijncoinmnb.py [-h] [-c] [-s] [-a] [-b] [-y] [-n] [-f] [-q] [-l] [-m] [-x]
                   [-w]
                   [mnalias[s] or a proposal_hash [mnalias[s] or a
                   proposal_hash ...]]
@@ -208,10 +208,10 @@ optional arguments:
 ## Installation
 
 
-#### [Ubuntu 16.04 --> use this link](https://github.com/chaeplin/dashmnb/tree/master/others/pics/ubuntu-16.04)
-#### [Ubuntu 14.04 --> use this link](https://github.com/chaeplin/dashmnb/tree/master/others/pics/ubuntu-14.04)
-#### [Debian 8.7.1 --> use this link](https://github.com/chaeplin/dashmnb/tree/master/others/pics/debian-8.7.1)
-#### [WIndows 10 --> use this link](https://github.com/chaeplin/dashmnb/tree/master/others/pics/windows10)
+#### [Ubuntu 16.04 --> use this link](https://github.com/chaeplin/florijncoinmnb/tree/master/others/pics/ubuntu-16.04)
+#### [Ubuntu 14.04 --> use this link](https://github.com/chaeplin/florijncoinmnb/tree/master/others/pics/ubuntu-14.04)
+#### [Debian 8.7.1 --> use this link](https://github.com/chaeplin/florijncoinmnb/tree/master/others/pics/debian-8.7.1)
+#### [WIndows 10 --> use this link](https://github.com/chaeplin/florijncoinmnb/tree/master/others/pics/windows10)
 #### Mac OSX --> check 1.b Install Prerequisites (Mac OSX)
 
 ### 1.a Install Prerequisites (Ubuntu)
@@ -233,7 +233,7 @@ Update system packages and ensure virtualenv is installed:
     sudo pip3 install virtualenv
 
 #### if python3 is 3.4.x
-go to [Install dashmnb](#2-install-dashmnb) and install python-3.5.3 
+go to [Install florijncoinmnb](#2-install-florijncoinmnb) and install python-3.5.3 
 
 ### 1.b Install Prerequisites (Mac OSX)
 
@@ -244,12 +244,12 @@ Install brew and python3.5 or python3.6
     pip3 install virtualenv
 
 
-### 2. Install dashmnb
+### 2. Install florijncoinmnb
 
 #### if python3 is is above 3.5.1
-Clone the dashmnb repo and install Python dependencies.
+Clone the florijncoinmnb repo and install Python dependencies.
 
-    git clone https://github.com/chaeplin/dashmnb && cd dashmnb
+    git clone https://github.com/chaeplin/florijncoinmnb && cd florijncoinmnb
     virtualenv -p python3 venv3
     . venv3/bin/activate
     pip install --upgrade setuptools
@@ -257,11 +257,11 @@ Clone the dashmnb repo and install Python dependencies.
 
 
 #### if python3 is 3.4.x
-Clone the dashmnb repo and install Python 3.5.3 and Python dependencies.
+Clone the florijncoinmnb repo and install Python 3.5.3 and Python dependencies.
 
     sudo apt-get update
     sudo apt-get -y git
-    git clone https://github.com/chaeplin/dashmnb && cd dashmnb
+    git clone https://github.com/chaeplin/florijncoinmnb && cd florijncoinmnb
     sh ./others/linux/python-3.5.3-install.sh
     virtualenv -p python3.5 venv3
     . venv3/bin/activate
@@ -276,7 +276,7 @@ To use keepkey or trezor as normal user, do following
 
     sudo cp others/linux/51-* /etc/udev/rules.d/
 
-When you see the following err while running dashmnb first time, need system reboot to apply udev rule
+When you see the following err while running florijncoinmnb first time, need system reboot to apply udev rule
 ```
     Network : MAINNET
     ===> trezor HW Wallet found
@@ -290,7 +290,7 @@ When you see the following err while running dashmnb first time, need system reb
 
 ## Update
 
-    cd dashmnb
+    cd florijncoinmnb
     . venv3/bin/activate
     git pull
 
@@ -300,25 +300,25 @@ When you see the following err while running dashmnb first time, need system reb
 
 ## debug
 
-    add DASHMNB_DEBUG=1 
+    add FLRNMNB_DEBUG=1 
 
-    cd dashmnb
+    cd florijncoinmnb
     . venv3/bin/activate
-    DASHMNB_DEBUG=1 python bin/dashmnb.py
+    FLRNMNB_DEBUG=1 python bin/florijncoinmnb.py
 
 
 ## Configuration
 
-### 1. copy dashlib/config.xxxx.py to dashlib/config.py and edit parameters
+### 1. copy florijncoinlib/config.xxxx.py to florijncoinlib/config.py and edit parameters
     
-    - copy dashlib/config.sample.mainnet.remotesvc.py to use `remote rpc service by chaeplin`
-    - copy dashlib/config.sample.mainnet.py to run own dashd/Dash-QT
+    - copy florijncoinlib/config.sample.mainnet.remotesvc.py to use `remote rpc service by chaeplin`
+    - copy florijncoinlib/config.sample.mainnet.py to run own florijncoind/Florijncoin-QT
     
     - testing config.py : no output if config.py is ok
 
-        cd dashmnb
+        cd florijncoinmnb
         . venv3/bin/activate
-        python dashlib/config.py
+        python florijncoinlib/config.py
 
 
     - things to change in config.py
@@ -328,7 +328,7 @@ When you see the following err while running dashmnb first time, need system reb
         max_gab
 
 ```
-following 4 questions are keys to make a dashlib/config.py
+following 4 questions are keys to make a florijncoinlib/config.py
 
 1) hw wallet type : Trezor or Keepkey
    config name : TYPE_HW_WALLET
@@ -347,8 +347,8 @@ following 4 questions are keys to make a dashlib/config.py
 
 4) number of address used in 'Account #x' : last address_index
    config name : max_gab
-   this config set max number of address that dashmnb gets from Trezor or Keepkey
-   dashmnb uses these addresses to compare collateral address(es) in masternode.conf is correct
+   this config set max number of address that florijncoinmnb gets from Trezor or Keepkey
+   florijncoinmnb uses these addresses to compare collateral address(es) in masternode.conf is correct
    number of masternodes : how many masternodes(1K fund) do you have in hw wallet(if address is sequential)
    number of last address_index that holds fund : /'y' in receive tab
    number of masternodes + 1 or number of last address_index + 1
@@ -357,13 +357,13 @@ following 4 questions are keys to make a dashlib/config.py
 
 ### 2. Use `python bin/hw-wallet-for-mn.py` or `python bin/tool-for-config.py [account_no] [account_no]` to get a list of address
 
-        cd dashmnb
+        cd florijncoinmnb
         . venv3/bin/activate
         python bin/hw-wallet-for-mn.py
 
 or
 
-        cd dashmnb
+        cd florijncoinmnb
         . venv3/bin/activate
         python bin/tool-for-config.py 0 1 2
         
@@ -384,7 +384,7 @@ python bin/tool-for-config.py 0 1 2
 ```
 
 
-- Use trezor web wallet or keepkey rc clinet to compare address and send 1K Dash to an address
+- Use trezor web wallet or keepkey rc clinet to compare address and send 1K Florijncoin to an address
 - If you moved fund(s) on trezor or keepkey already, use trezor web wallet or keepkey rc clinet to find bip32 path
 
 
@@ -393,11 +393,11 @@ python bin/tool-for-config.py 0 1 2
     cp mnconf/masternode.conf.sample mnconf/masternode.conf
 
 
-### 4.  Run dashmnb.py
+### 4.  Run florijncoinmnb.py
 
-        cd dashmnb
+        cd florijncoinmnb
         . venv3/bin/activate
-        python bin/dashmnb.py
+        python bin/florijncoinmnb.py
 
 
 ## Vote
@@ -406,13 +406,13 @@ python bin/tool-for-config.py 0 1 2
     use -n proposal_hash for no
 
 ```
-(venv3) > python bin/dashmnb.py -y proposal_hash
+(venv3) > python bin/florijncoinmnb.py -y proposal_hash
 
 ```
 
 
 ```
-(venv3) > python bin/dashmnb.py -n proposal_hash
+(venv3) > python bin/florijncoinmnb.py -n proposal_hash
 
 ```
 
@@ -422,16 +422,16 @@ python bin/tool-for-config.py 0 1 2
     -w whalemode
 
 ```
-(venv3) > python bin/dashmnb.py -x -w : do not ask yes or no, all yes on transaction
-(venv3) > python bin/dashmnb.py -a -w : do not ask yes or no, all yes on mn_start
-(venv3) > python bin/dashmnb.py -a mnalias1 -w : do not ask yes or no, all yes on mn_start of mnalias1
+(venv3) > python bin/florijncoinmnb.py -x -w : do not ask yes or no, all yes on transaction
+(venv3) > python bin/florijncoinmnb.py -a -w : do not ask yes or no, all yes on mn_start
+(venv3) > python bin/florijncoinmnb.py -a mnalias1 -w : do not ask yes or no, all yes on mn_start of mnalias1
 ```
 
 
-## to run own dashd / Dash-QT
+## to run own florijncoind / Florijncoin-QT
 
 
-###### Q : why Dash-QT or dashd needed ? [if you want to run your own dashd/QT]
+###### Q : why Florijncoin-QT or florijncoind needed ? [if you want to run your own florijncoind/QT]
     - instead of block explorer 
     - fast, reliable
     - for privacy
@@ -459,19 +459,19 @@ python bin/tool-for-config.py 0 1 2
 
 
 ###### Q : got err `No information available for address`
-    - Run once with dashd/QT with -reindex
+    - Run once with florijncoind/QT with -reindex
     - wait till reindex is done
 
 
-###### Q : why do -reindex ? [if you want to run your own dashd/QT]
-    - -reindex means restaring dashd or Dash-QT with -reindex option
-    - after initial checking of masternode config, dashmnb will ask you to do reindex
+###### Q : why do -reindex ? [if you want to run your own florijncoind/QT]
+    - -reindex means restaring florijncoind or Florijncoin-QT with -reindex option
+    - after initial checking of masternode config, florijncoinmnb will ask you to do reindex
 
-###### Q : Which one to do first [if you want to run your own dashd/QT]
-    - Set up local/remote node, add following to dash.conf. check dash.conf.sample
+###### Q : Which one to do first [if you want to run your own florijncoind/QT]
+    - Set up local/remote node, add following to florijncoin.conf. check florijncoin.conf.sample
 
 ```
-    rpcuser=dashrpc#change
+    rpcuser=florijncoinrpc#change
     rpcpassword=veryvey-long-complicatedpassword=#change
     rpcallowip=127.0.0.1
     rpcbind=127.0.0.1
@@ -485,7 +485,7 @@ python bin/tool-for-config.py 0 1 2
     txindex=1
 ```
 
-    Run once with dashd/QT with -reindex, to make index
+    Run once with florijncoind/QT with -reindex, to make index
 
     QT : use tools —> wallet repair —> last button : rebuild index.
 ![1](./others/pics/qt-rebuild.png)
@@ -493,29 +493,29 @@ python bin/tool-for-config.py 0 1 2
 
 
 
-###### add ssh key to remote node [if you want to run your own dashd/QT]
+###### add ssh key to remote node [if you want to run your own florijncoind/QT]
 
 https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2
 
 
 
 ## Support
-- I can guide you installtion and configuration of dashmnb
-- ping chaeplin at dashnation slack : http://www.dashnation.com/chat/
+- I can guide you installtion and configuration of florijncoinmnb
+- ping chaeplin at florijncoinnation slack : http://www.florijncoinnation.com/chat/
 - OS : Linux(Ubuntu), Mac OSX
-- check [trezor example](https://github.com/chaeplin/dashmnb/tree/master/others/pics/trezor) to get required information
+- check [trezor example](https://github.com/chaeplin/florijncoinmnb/tree/master/others/pics/trezor) to get required information
 - masternode.conf(hosting provider sent you or you made)
 
 
 ## Thanks
-- codes form https://github.com/dashpay/electrum-dash
-- ref : https://github.com/dashpay/dash/blob/v0.12.1.x/dash-docs/protocol-documentation.md
-- masternode status : https://www.dashninja.pl
+- codes form https://github.com/florijncoinpay/electrum-florijncoin
+- ref : https://github.com/florijncoinpay/florijncoin/blob/v0.12.1.x/florijncoin-docs/protocol-documentation.md
+- masternode status : https://www.florijncoinninja.pl
 
 
 ## Donations
 
-DASH: [XiDWe5fkVcrXBQApmCFQUxpue5iuWcbmcK](https://chainz.cryptoid.info/dash/address.dws?XiDWe5fkVcrXBQApmCFQUxpue5iuWcbmcK.htm)
+FLRN: [XiDWe5fkVcrXBQApmCFQUxpue5iuWcbmcK](https://chainz.cryptoid.info/florijncoin/address.dws?XiDWe5fkVcrXBQApmCFQUxpue5iuWcbmcK.htm)
 
 
 /chaeplin

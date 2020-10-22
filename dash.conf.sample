@@ -1,4 +1,4 @@
-rpcuser=dashrpc#change
+rpcuser=florijncoinrpc#change
 rpcpassword=veryvey-long-complicatedpassword=#change
 rpcallowip=127.0.0.1
 rpcbind=127.0.0.1

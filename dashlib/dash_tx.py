@@ -7,8 +7,8 @@ import binascii
 import hashlib
 import simplejson as json
 
-from dash_hashs import *
-from dash_script import *
+from florijncoin_hashs import *
+from florijncoin_script import *
 
 
 def deserialize_script(script):

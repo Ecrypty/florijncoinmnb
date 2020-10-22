@@ -7,7 +7,7 @@ ubuntu-16.04
 
 ### 2) download installation script
 ```
-wget https://raw.githubusercontent.com/chaeplin/dashmnb/master/others/linux/ubuntu-14-04.sh
+wget https://raw.githubusercontent.com/chaeplin/florijncoinmnb/master/others/linux/ubuntu-14-04.sh
 ```
 ![1](./02.png)
 
@@ -24,7 +24,7 @@ sh ./ubuntu-14-04.sh
 ![1](./04.png)
 
 
-### 5) open folder ~/dashmnb/dashlib and duoble click config.py
+### 5) open folder ~/florijncoinmnb/florijncoinlib and duoble click config.py
 
 gedit will open it
 
@@ -37,7 +37,7 @@ default_receiving_address
 max_gab
 ```
 
-https://github.com/chaeplin/dashmnb/tree/master/others/pics/trezor has example
+https://github.com/chaeplin/florijncoinmnb/tree/master/others/pics/trezor has example
 ![1](./05.png)
 ![1](./06.png)
 ![1](./07.png)
@@ -45,7 +45,7 @@ https://github.com/chaeplin/dashmnb/tree/master/others/pics/trezor has example
 
 
 
-### 6) open folder ~dashmnb/mnconf and rename masternode.conf.sample to masternode.conf
+### 6) open folder ~florijncoinmnb/mnconf and rename masternode.conf.sample to masternode.conf
 
 duoble click masternode.conf, gedit will open it
 
@@ -59,14 +59,14 @@ edit mnconf(or paste text of masternode.conf whichh mn hosting providee sent you
 
 ### 7) use following command to start
 ```
-cd ~/dashmnb
+cd ~/florijncoinmnb
 . venv3/bin/activate
-python bin/dashmnb.py
+python bin/florijncoinmnb.py
 
 
-python bin/dashmnb.py -c
+python bin/florijncoinmnb.py -c
 
 
-python bin/dashmnb.py -b
+python bin/florijncoinmnb.py -b
 ```
 

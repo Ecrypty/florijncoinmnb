@@ -5,7 +5,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '.'))
 import hashlib
 import binascii
 
-from dash_utils import *
+from florijncoin_utils import *
 
 
 def double_sha256(data):

@@ -8,7 +8,7 @@ import base64
 
 def make_badge(mnconfig, mpath, client):
 
-    forum_msg = "Masternode ownership proof for https://www.dash.org/forum/"
+    forum_msg = "Masternode ownership proof for https://www.florijncoin.org/forum/"
 
     print('\n[making a signed message for Masternode Owner/Operator badge]')
     print_hw_wallet_check()

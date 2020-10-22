@@ -1,15 +1,15 @@
 how to use Account #'x' on trezor for masternodes
 =============================================
 
-### Q : can I use multiple Account #'x'(multiple bip32 path) with dashmnb ?
-    - dashmnb support only single Account #'x'(single bip32 path)
+### Q : can I use multiple Account #'x'(multiple bip32 path) with florijncoinmnb ?
+    - florijncoinmnb support only single Account #'x'(single bip32 path)
     - can't use mixed account name(Account #1 + Account #2) together
     - can't use mixed(ex: 44'/5'/x'/0/0 + 44'/5'/y'/0/0) path together
 
 ### Q : I have mn funds in Account #2, Account #3.
-    - run seperate dashmnb for each Account #2, and Account #3 
-    - make 2 copy of dashmnb for each Account #'x' like dashmnb2, dashmnb3
-    - edit dashlib/config.py and mnconf/masternode.conf of each dashmnb 
+    - run seperate florijncoinmnb for each Account #2, and Account #3 
+    - make 2 copy of florijncoinmnb for each Account #'x' like florijncoinmnb2, florijncoinmnb3
+    - edit florijncoinlib/config.py and mnconf/masternode.conf of each florijncoinmnb 
 
 
 ### example
@@ -19,8 +19,8 @@ how to use Account #'x' on trezor for masternodes
 ![1](./001.png)
 
 
-* on Receive tab of Account #2, select an address to send 1000 Dash
-* each address will have exact 1000 Dash(if you have multiple mns)
+* on Receive tab of Account #2, select an address to send 1000 Florijncoin
+* each address will have exact 1000 Florijncoin(if you have multiple mns)
 * any address can be used, no order
 * example select two address
 ![1](./002.png)
@@ -38,7 +38,7 @@ how to use Account #'x' on trezor for masternodes
 
 
 ```
-following 4 questions are keys to make a dashlib/config.py
+following 4 questions are keys to make a florijncoinlib/config.py
 
 1) hw wallet type : Trezor or Keepkey
    config name : TYPE_HW_WALLET
@@ -57,8 +57,8 @@ following 4 questions are keys to make a dashlib/config.py
 
 4) number of address used in 'Account #x' : last address_index
    config name : max_gab
-   this config set max number of address that dashmnb gets from Trezor or Keepkey
-   dashmnb uses these addresses to compare collateral address(es) in masternode.conf is correct
+   this config set max number of address that florijncoinmnb gets from Trezor or Keepkey
+   florijncoinmnb uses these addresses to compare collateral address(es) in masternode.conf is correct
    number of masternodes : how many masternodes(1K fund) do you have in hw wallet(if address is sequential)
    number of last address_index that holds fund : /'y' in receive tab
    number of masternodes + 1 or number of last address_index + 1
